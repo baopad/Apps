@@ -11,9 +11,9 @@ create_mainfest_file(){
     IBM_MEM_SIZE=256
     fi
     echo "内存大小：${IBM_MEM_SIZE}"
-    UUID=$(cat /proc/sys/kernel/random/uuid)
+    UUID='47e37f31-2f77-4f07-86eb-21ac236704e1'
     echo "生成随机UUID：${UUID}"
-    WSPATH=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 16)
+    WSPATH='/ray'
     echo "生成随机WebSocket路径：${WSPATH}"
     
     cat >  ${SH_PATH}/IBMYes/v2ray-cloudfoundry/manifest.yml  << EOF
