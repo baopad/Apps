@@ -11,7 +11,7 @@ cd cloudfoundry
 echo '<!DOCTYPE html> '>>index.html
 echo '<html> '>>index.html
 echo '<body>'>>index.html
-echo 'Hello World!'>>index.php
+echo 'Hello World!'>>index.html
 echo '<body>'>>index.html
 echo '</html>'>>index.html
 
