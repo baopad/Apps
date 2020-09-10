@@ -27,7 +27,7 @@ mv $HOME/cloudfoundry/v2ray1/v2ray $HOME/cloudfoundry/v2ray
 mv $HOME/cloudfoundry/v2ray1/v2ctl $HOME/cloudfoundry/v2ctl
 rm -rf $HOME/cloudfoundry/v2ray1
 uuid="47e37f31-2f77-4f07-86eb-21ac236704e1"
-path="/ray"
+path="ray"
 echo '{"inbounds":[{"port":8080,"protocol":"vmess","settings":{"clients":[{"id":"'$uuid'","alterId":64}]},"streamSettings":{"network":"ws","wsSettings":{"path":"/'$path'"}}}],"outbounds":[{"protocol":"freedom","settings":{}}]}'>$HOME/cloudfoundry/config.json
 echo 'applications:'>>manifest.yml
 echo '- path: .'>>manifest.yml
