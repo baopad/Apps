@@ -8,12 +8,14 @@ rm -rf cloudfoundry
 mkdir cloudfoundry
 cd cloudfoundry
 
-echo '<!DOCTYPE html> '>>index.html
-echo '<html> '>>index.html
-echo '<body>'>>index.html
-echo 'Hello World!'>>index.html
-echo '<body>'>>index.html
-echo '</html>'>>index.html
+echo '<!DOCTYPE html> '>>index.php
+echo '<html> '>>index.php
+echo '<body>'>>index.php
+echo '<?php '>>index.php
+echo 'echo "Hello World!"; '>>index.php
+echo '?> '>>index.php
+echo '<body>'>>index.php
+echo '</html>'>>index.php
 
 wget https://github.com/v2ray/v2ray-core/releases/latest/download/v2ray-linux-64.zip
 unzip -d v2ray1 v2ray-linux-64.zip
