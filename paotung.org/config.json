@@ -7,7 +7,7 @@ cat > /usr/local/etc/xray/./config.json <<EOF
             "settings": {
                 "clients": [
                     {
-                        "id": "3a2cc75a-5fc1+D11:D23-4123-983b-7a1c86a10888",
+                        "id": "3a2cc75a-5fc1-4123-983b-7a1c86a10888",
                         "level": 1,
                         "alterId": 64
                     }
