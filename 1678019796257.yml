@@ -1,0 +1,124 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: none
+external-controller: :9090
+proxies:
+  - name: snap.linkpc.net
+    type: vmess
+    server: snap.linkpc.net
+    port: "443"
+    uuid: 3C02DC15-56AE-7889-8936-9A2EA8FF8666
+    alterId: "0"
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+      path: ""
+  - name: baopad.eu.org
+    type: vmess
+    server: baopad.eu.org
+    port: "443"
+    uuid: 3C02DC15-56AE-7889-8936-9A2EA8FF8666
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+      path: ""
+  - name: cfp.paotung.org
+    type: vmess
+    server: cfp.paotung.org
+    port: "443"
+    uuid: 3C02DC15-56AE-7889-8936-9A2EA8FF8666
+    alterId: "0"
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+      path: ""
+  - name: aws.paotung.org
+    type: vmess
+    server: aws.paotung.org
+    port: "443"
+    uuid: 3C02DC15-56AE-7889-8936-9A2EA8FF8666
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+      path: ""
+  - name: ged.donpau.com
+    type: vmess
+    server: ged.donpau.com
+    port: "443"
+    uuid: 3C02DC15-56AE-7889-8936-9A2EA8FF8666
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+      path: ""
+    _index: 4
+  - name: snap.paotung.org/hub
+    type: vmess
+    server: snap.paotung.org
+    port: "443"
+    uuid: 3C02DC15-56AE-7889-8936-9A2EA8FF8666
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+      path: /hub
+    _index: 5
+  - name: oci.donpau.com
+    type: vmess
+    server: oci.donpau.com
+    port: "443"
+    uuid: 3a2cc75a-5fc1-4123-983b-7a1c86a10888
+    alterId: "0"
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+      path: ""
+    _index: 6
+  - name: snap.donpau.com
+    type: vmess
+    server: snap.donpau.com
+    port: "443"
+    uuid: 3a2cc75a-5fc1-4123-983b-7a1c86a10888
+    alterId: "0"
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+      path: ""
+proxy-groups:
+  - name: Automatic
+    proxies:
+      - snap.linkpc.net
+      - baopad.eu.org
+      - cfp.paotung.org
+      - aws.paotung.org
+      - ged.donpau.com
+      - snap.paotung.org/hub
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: "600"
+  - name: Balance
+    proxies:
+      - snap.linkpc.net
+      - baopad.eu.org
+      - cfp.paotung.org
+      - aws.paotung.org
+      - ged.donpau.com
+      - snap.paotung.org/hub
+    type: load-balance
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+rules:
+  - MATCH,Balance
+  - MATCH,Automatic
